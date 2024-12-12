@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tunisian Cultural Monuments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0000001d;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .monument-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .monument-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .monument-item h2 {
+            color: #00796b;
+            margin: 0;
+        }
+        .monument-item .place {
+            font-weight: bold;
+            color: #555;
+        }
+        .monument-item p {
+            margin: 10px 0;
+        }
+        .monument-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function searchMonuments() {
+            const searchInput = document.getElementById('search-bar').value.toLowerCase();
+            const monuments = document.getElementsByClassName('monument-item');
+
+            Array.from(monuments).forEach(monument => {
+                const title = monument.getElementsByTagName('h2')[0].innerText.toLowerCase();
+                if (title.includes(searchInput)) {
+                    monument.style.display = '';
+                } else {
+                    monument.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Tunisian Cultural Monuments</h1>
+</header>
+
+<div class="search-container">
+    <input type="text" id="search-bar" placeholder="Search for a monument..." onkeyup="searchMonuments()" />
+</div>
+
+<div class="monument-list">
+    <div class="monument-item">
+        <h2>Carthage Ruins</h2>
+        <p class="place">Location: Carthage, Tunis</p>
+        <p>Once a powerful city of the ancient Carthaginian Empire, the ruins of Carthage offer insight into Tunisia's rich history and cultural legacy.</p>
+        <img src="images/Carthage Ruins.jpg" alt="Carthage Ruins">
+    </div>
+    <div class="monument-item">
+        <h2>El Djem Amphitheater</h2>
+        <p class="place">Location: El Djem, Mahdia</p>
+        <p>One of the largest amphitheaters in the Roman world, El Djem is an impressive example of Roman architecture and engineering in Tunisia.</p>
+        <img src="images/El Djem Amphitheater.jpg" alt="El Djem Amphitheater">
+    </div>
+    <div class="monument-item">
+        <h2>Ribat of Monastir</h2>
+        <p class="place">Location: Monastir</p>
+        <p>This fortified monastery served as both a religious site and a defensive structure, reflecting Tunisia's complex historical landscape.</p>
+        <img src="images/Ribat of Monastir.jpeg" alt="Ribat of Monastir">
+    </div>
+    <div class="monument-item">
+        <h2>Kairouan Mosque</h2>
+        <p class="place">Location: Kairouan</p>
+        <p>Also known as the Great Mosque of Kairouan, it is one of the most important mosques in North Africa and a UNESCO World Heritage site.</p>
+        <img src="images/Kairouan Mosque.jpeg" alt="Kairouan Mosque">
+    </div>
+    <!-- Add more monument items as needed -->
+</div>
+
+</body>
+</html>
